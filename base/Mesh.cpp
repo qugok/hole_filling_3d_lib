@@ -4,7 +4,6 @@
 #include <unordered_map>
 #include <set>
 #include <algorithm>
-#include <FillSmall.hpp>
 #include <tools/MeshController.hpp>
 #include <string>
 #include <fstream>

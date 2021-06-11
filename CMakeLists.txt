@@ -1,18 +1,21 @@
 cmake_minimum_required(VERSION 3.15)
 project(hole_filling_3d_lib)
 
-set(CMAKE_CXX_STANDARD 20)
-#set(CMAKE_CXX_STANDARD 17)
+#set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
 
 add_library(hole_filling_3d_lib
 
         library.cpp library.h
 
-        geometry/Point.cpp base/Vertex.cpp
+        geometry/Point.cpp
 
+        base/Vertex.cpp
         base/HalfEdge.cpp base/base.hpp
-        base/Triangle.cpp base/Mesh.cpp
-        base/Mesh.hpp io/BaseOStream.cpp
+        base/Triangle.cpp
+        base/Mesh.cpp base/Mesh.hpp
+
+        io/BaseOStream.cpp
 
         io/OffIStream.cpp io/OffIStream.hpp
         io/OffOStream.cpp io/OffOStream.hpp

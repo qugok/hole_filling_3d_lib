@@ -1,2 +1,5 @@
-# Project exclude paths
-/cmake-build-debug-g10/
+cmake-build-debug-g10
+cmake-build-debug-clang
+cmake-build-debug
+.gitignore
+cmake-build-debug-g10/_deps/libigl-src

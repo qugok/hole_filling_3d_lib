@@ -1,7 +1,3 @@
-//
-// Created by alex on 09.03.2021.
-//
-
 #include "base.hpp"
 HalfEdge::HalfEdge(const std::shared_ptr<Vertex> &start,
                    const std::shared_ptr<Vertex> &end,
