@@ -12,5 +12,23 @@
 в папке `filling_strategy` в файлах `.hpp` для всех классов имеется описание что они делают
 чтобы при наведении на имя класса эта документация всплывала по подсказке рекомендуется использовать IDE, например, CLion
 
+как запускать без CLion:  
+* создаём папку build
+* внутри неё выполняем cmake ..
+* там же выполняем make  
 
+теперь для всех целей, указанных в CMakeLists.txt в папке build есть исполняемый файл  
+  (experiment_example, playground, simple_example)  
+  
+пример как это сделать с помощью команд в терминале Linux  
+> git clone https://github.com/qugok/hole_filling_3d_lib.git  
+> cd hole_filling_3d_lib  
+> mkdir build  
+> cd build  
+> cmake ..  
+> make
 
+для этого обязательно нужно наличие на компьютере:
+* компилятора C++
+* cmake
+* make 
