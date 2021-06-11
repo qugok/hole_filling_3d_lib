@@ -1,0 +1,16 @@
+in model: ../models/for_test/4bun_high.stl
+out model: ../temp/out8.stl
+TriangulationStrategy:
+	BaseAdvancingFront:
+		limit: 18446744073709551615
+		new_edge_coef: 1.87083
+		vertexes_count_end: 100
+		min_edge_len: 1
+		ModernAdvancingFront:
+			vertexes_normal_count:	10
+			alpha:	0.99
+			beta:	0.01
+			w1:	0.15
+			w2:	0.85
+			A_max:	0.15
+			A_min:	-0.15

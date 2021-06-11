@@ -1,0 +1,16 @@
+in model: ../models/for_test/1sphere_hole.stl
+out model: ../models/for_test/test_result/16sphere_hole.stl
+TriangulationStrategy:
+	BaseAdvancingFront:
+		limit: 10000
+		new_edge_coef: 1.87083
+		vertexes_count_end: 100
+		min_edge_len: 1
+		ModernAdvancingFront:
+			vertexes_normal_count:	3
+			alpha:	1
+			beta:	0
+			w1:	0.05
+			w2:	0.95
+			A_max:	0.2
+			A_min:	-0.2

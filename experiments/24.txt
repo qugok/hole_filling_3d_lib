@@ -1,0 +1,8 @@
+in model: ../models/for_test/1sphere_hole.stl
+out model: ../temp/out8.stl
+TriangulationStrategy:
+	MinAreaTriangulation: 
+ImproveStrategy:
+		DeloneLike:
+		alpha2:	2
+		limit:	100

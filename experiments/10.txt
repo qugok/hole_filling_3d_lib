@@ -1,0 +1,14 @@
+in model: ../models/for_test/2sphere_dumbbell_hole.STL
+out model: ../temp/out8.stl
+TriangulationStrategy:
+	BaseAdvancingFront:
+		limit: 18446744073709551615
+		new_edge_coef: 1.73205
+		vertexes_count_end: 100
+		min_edge_len: 1
+ImproveStrategy:
+		StupidUmbrella:
+		iterative:	1
+		include_boundary:	0
+		count:	10
+		StupidHarmonicUmbrella:

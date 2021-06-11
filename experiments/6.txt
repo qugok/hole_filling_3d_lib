@@ -1,0 +1,4 @@
+in model: ../models/for_test/1sphere_hole.stl
+out model: ../temp/out8.stl
+TriangulationStrategy:
+FillSmall: 

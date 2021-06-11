@@ -1,0 +1,15 @@
+in model: ../models/for_test/4bun_high.stl
+out model: ../temp/out8.stl
+FastHoleFillingMethod:
+	low_border:	6
+	top_border:	50
+	delone_limit:	2
+	fairing_big:	0
+		ModernAdvancingFront:
+			vertexes_normal_count:	3
+			alpha:	0.99
+			beta:	0
+			w1:	0.15
+			w2:	0.85
+			A_max:	0.15
+			A_min:	-0.15
