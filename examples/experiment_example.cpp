@@ -28,19 +28,20 @@ void exec_experiment(const FillingStrategy &filling_strategy, int number, const 
 int main() {
 
   // здесь можно выбрать из какого файла читать модель
-  std::string readpath = "../models/for_test/1sphere_hole.stl";
+//  std::string readpath = "../models/for_test/1sphere_hole.stl";
 //  std::string readpath = "../models/for_test/2sphere_dumbbell_hole.STL";
 //  std::string readpath = "../models/for_test/3bunnyhole.off";
-//  std::string readpath = "../models/for_test/4bun_high.stl";
+  std::string readpath = "../models/for_test/4bun_high.stl";
+//  std::string readpath = "../models/for_test/5sphere_small.STL";
 
   // здесь можно выбрать в какой файл записать результат
 //  std::string writepath = "../models/for_test/test_result/1potato.stl";
-  std::string writepath = "../temp/out8.stl";
+  std::string writepath = "../models/for_test/test_result/bunny.stl";
 //  std::string writepath = "../models/for_test/test_result/16sphere_hole.stl";
 
   // номер эксперимента
-  int number = 25;
-
+  int number = 35;
+  bool save = false;
   // здесь можно выбрать стратегию для применения к отверстиям
   // это метод, описанный в статье (с исправлениями)
 //  strategies::FastHoleFillingMethod filling_strategy = strategies::FastHoleFillingMethod();
@@ -49,16 +50,16 @@ int main() {
   // 1 - начальная триангуляция
   // 2 - улучшения триангуляции, применяемые последовательно
   strategies::SequenceFillingStrategy filling_strategy = strategies::SequenceFillingStrategy(
-//      new initial_triangulation::advancing_front::ModernAdvancingFront(-1, sqrt(3.5)),
-      new initial_triangulation::MinAreaTriangulation(),
+      new initial_triangulation::advancing_front::ModernAdvancingFront(-1, sqrt(3.5)),
+//      new initial_triangulation::MinAreaTriangulation(),
       {
-          new refinement::DeloneLike(100),
-//              new fairing::StupidHarmonicUmbrella(1, true, false),
+//          new refinement::DeloneLike(100),
+              new fairing::StupidHarmonicUmbrella(1, true, true),
 //              new fairing::StupidUniformUmbrella(1, true, false),
       }
   );
 
   // здесь происходит запуск эксперимента
-  exec_experiment(filling_strategy, number, readpath, writepath, true);
+  exec_experiment(filling_strategy, number, readpath, writepath, save);
   return 0;
 }

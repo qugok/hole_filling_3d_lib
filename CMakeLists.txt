@@ -20,9 +20,9 @@ add_library(hole_filling_3d_lib
         io/OffIStream.cpp io/OffIStream.hpp
         io/OffOStream.cpp io/OffOStream.hpp
         io/BaseOStream.hpp io/BaseIStream.cpp
-        io/BaseIStream.hpp io/StlBinaryIstream.hpp
-        io/StlBinaryIstream.cpp io/StlBinaryIstream.hpp
-        io/StlBinaryOstream.cpp io/StlBinaryOstream.hpp
+        io/BaseIStream.hpp io/StlBinaryIStream.hpp
+        io/StlBinaryIStream.cpp io/StlBinaryIStream.hpp
+        io/StlBinaryOStream.cpp io/StlBinaryOStream.hpp
 
         filling_strategy/BaseFillingStrategy.hpp
         filling_strategy/FillingStrategy.hpp

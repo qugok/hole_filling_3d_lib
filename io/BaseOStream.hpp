@@ -26,21 +26,21 @@ class BaseOStream {
 
 };
 
-class StlOstream : public BaseOStream {
+class StlOStream : public BaseOStream {
  public:
-  StlOstream();
-  explicit StlOstream(const std::string &path);
+  StlOStream();
+  explicit StlOStream(const std::string &path);
 
-  ~StlOstream() override;
+  ~StlOStream() override;
 
-  StlOstream &operator<<(const size_t &n) override;
-  StlOstream &operator<<(const Point &p) override;
-  StlOstream &operator<<(const Vertex &v) override;
-  StlOstream &operator<<(const double &d) override;
-  StlOstream &operator<<(const char *s) override;
-  StlOstream &operator<<(const std::string &s) override;
-  StlOstream &operator<<(const Triangle &t) override;
-  StlOstream &operator<<(const Mesh &m) override;
+  StlOStream &operator<<(const size_t &n) override;
+  StlOStream &operator<<(const Point &p) override;
+  StlOStream &operator<<(const Vertex &v) override;
+  StlOStream &operator<<(const double &d) override;
+  StlOStream &operator<<(const char *s) override;
+  StlOStream &operator<<(const std::string &s) override;
+  StlOStream &operator<<(const Triangle &t) override;
+  StlOStream &operator<<(const Mesh &m) override;
 
  private:
   std::ostream *out;

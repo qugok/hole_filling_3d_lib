@@ -12,7 +12,6 @@ namespace initial_triangulation {
  * и возвращает новые вершины внутри отверстия для дальнейшей обработки
  */
 class TriangulationStrategy : public BaseFillingStrategy {
-  friend class Mesh;
 
  public:
   /*

@@ -27,23 +27,23 @@ class BaseIStream {
   bool error = false;
 };
 
-class StlIstream : public BaseIStream {
+class StlIStream : public BaseIStream {
  public:
-  StlIstream();
-  explicit StlIstream(const std::string &path);
+  StlIStream();
+  explicit StlIStream(const std::string &path);
 
-//  StlIstream(const StlIstream& ) = delete;
-//  StlIstream(StlIstream&& ) = delete;
-//  StlIstream& operator=(const StlIstream& ) = delete;
-//  StlIstream& operator=(StlIstream&& ) = delete;
-  ~StlIstream() override;
+//  StlIStream(const StlIStream& ) = delete;
+//  StlIStream(StlIStream&& ) = delete;
+//  StlIStream& operator=(const StlIStream& ) = delete;
+//  StlIStream& operator=(StlIStream&& ) = delete;
+  ~StlIStream() override;
 
-  StlIstream &operator>>(Point &p) override;
-  StlIstream &operator>>(Vertex &v) override;
-  StlIstream &operator>>(double &d) override;
-  StlIstream &operator>>(std::string &s) override;
-  StlIstream &operator>>(Triangle &t) override;
-  StlIstream &operator>>(Mesh &m) override;
+  StlIStream &operator>>(Point &p) override;
+  StlIStream &operator>>(Vertex &v) override;
+  StlIStream &operator>>(double &d) override;
+  StlIStream &operator>>(std::string &s) override;
+  StlIStream &operator>>(Triangle &t) override;
+  StlIStream &operator>>(Mesh &m) override;
 
  private:
   std::istream *in;

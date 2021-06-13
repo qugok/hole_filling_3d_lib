@@ -1,14 +1,14 @@
 #include <algorithm>
-#include "StlBinaryIstream.hpp"
+#include "StlBinaryIStream.hpp"
 #include "../base/Mesh.hpp"
 #include <fstream>
 
-io::StlBinaryIstream::StlBinaryIstream(const std::string& path) {
+io::StlBinaryIStream::StlBinaryIStream(const std::string& path) {
   in =  new std::ifstream(path, std::ios::binary);
  *in >> std::noskipws;
 }
 
-io::StlBinaryIstream &io::StlBinaryIstream::operator>>(Point &p) {
+io::StlBinaryIStream &io::StlBinaryIStream::operator>>(Point &p) {
   std::vector<float> coordinates(3);
   *this >> coordinates;
   p.x = coordinates[0];
@@ -17,18 +17,18 @@ io::StlBinaryIstream &io::StlBinaryIstream::operator>>(Point &p) {
 //  *this >> p.x >> p.y >> p.z;
   return *this;
 }
-io::StlBinaryIstream &io::StlBinaryIstream::operator>>(Vertex &v) {
+io::StlBinaryIStream &io::StlBinaryIStream::operator>>(Vertex &v) {
   *this >> v._coordinates;
   return *this;
 }
-io::StlBinaryIstream &io::StlBinaryIstream::operator>>(std::string &s) {
+io::StlBinaryIStream &io::StlBinaryIStream::operator>>(std::string &s) {
   // подумать какое поведение можно хотеть
 //  for (char &i : s) {
 //    *this >> i;
 //  }
   return *this;
 }
-io::StlBinaryIstream &io::StlBinaryIstream::operator>>(Triangle &t) {
+io::StlBinaryIStream &io::StlBinaryIStream::operator>>(Triangle &t) {
   *this >> t.n;
   t.a = std::make_shared<Vertex>();
   t.b = std::make_shared<Vertex>();
@@ -38,7 +38,7 @@ io::StlBinaryIstream &io::StlBinaryIstream::operator>>(Triangle &t) {
   *this >> attribute_byte_count;
   return *this;
 }
-io::StlBinaryIstream &io::StlBinaryIstream::operator>>(Mesh &m) {
+io::StlBinaryIStream &io::StlBinaryIStream::operator>>(Mesh &m) {
   std::vector<uint8_t> header(80);
   *this >> header;
   uint32_t number_of_triagles;
@@ -56,35 +56,35 @@ io::StlBinaryIstream &io::StlBinaryIstream::operator>>(Mesh &m) {
   return *this;
 }
 
-io::StlBinaryIstream &io::StlBinaryIstream::operator>>(double &d) {
+io::StlBinaryIStream &io::StlBinaryIStream::operator>>(double &d) {
   primitive_types temp;
   *this >> temp.c[0] >> temp.c[1] >> temp.c[2] >> temp.c[3] >> temp.c[4] >> temp.c[5] >> temp.c[6] >> temp.c[7];
   d = temp.v;
   return *this;
 }
-io::StlBinaryIstream &io::StlBinaryIstream::operator>>(uint32_t &d) {
+io::StlBinaryIStream &io::StlBinaryIStream::operator>>(uint32_t &d) {
   primitive_types temp;
   *this >> temp.c[0] >> temp.c[1] >> temp.c[2] >> temp.c[3];
   d = temp.ui32;
   return *this;
 }
-io::StlBinaryIstream &io::StlBinaryIstream::operator>>(uint8_t &d) {
+io::StlBinaryIStream &io::StlBinaryIStream::operator>>(uint8_t &d) {
   *in >> d;
   return *this;
 }
-io::StlBinaryIstream &io::StlBinaryIstream::operator>>(uint16_t &d) {
+io::StlBinaryIStream &io::StlBinaryIStream::operator>>(uint16_t &d) {
   primitive_types temp;
   *this >> temp.c[0] >> temp.c[1];
   d = temp.ui16;
   return *this;
 }
-io::StlBinaryIstream &io::StlBinaryIstream::operator>>(float &d) {
+io::StlBinaryIStream &io::StlBinaryIStream::operator>>(float &d) {
   primitive_types temp;
   *this >> temp.c[0] >> temp.c[1] >> temp.c[2] >> temp.c[3];
   d = temp.f;
   return *this;
 }
-io::StlBinaryIstream::~StlBinaryIstream() {
+io::StlBinaryIStream::~StlBinaryIStream() {
   delete in;
 }
 

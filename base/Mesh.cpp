@@ -7,8 +7,8 @@
 #include <tools/MeshController.hpp>
 #include <string>
 #include <fstream>
-#include <StlBinaryIstream.hpp>
-#include <StlBinaryOstream.hpp>
+#include <StlBinaryIStream.hpp>
+#include <StlBinaryOStream.hpp>
 #include <string_tools.hpp>
 #include <OffOStream.hpp>
 
@@ -191,13 +191,13 @@ Mesh Mesh::read_from(const std::string &path, std::string type) {
       if (not in.good()) {
         throw std::logic_error("file is not exists");
       }
-      io::StlBinaryIstream bin(path);
+      io::StlBinaryIStream bin(path);
       bin >> h;
     }
     if (h == std::vector<uint8_t>({'s', 'o', 'l', 'i', 'd'})) {
-      in = std::make_shared<io::StlIstream>(path);
+      in = std::make_shared<io::StlIStream>(path);
     } else {
-      in = std::make_shared<io::StlBinaryIstream>(path);
+      in = std::make_shared<io::StlBinaryIStream>(path);
     }
   } else if (type == "off") {
     in = std::make_shared<io::OffIStream>(path);
@@ -214,9 +214,9 @@ Mesh Mesh::read_from(const std::string &path, std::string type) {
 void Mesh::write_to(const Mesh &m, const std::string &path, const std::string &type) {
   std::shared_ptr<io::BaseOStream> out;
   if (type == "stl" || type == "bin_stl") {
-    out = std::make_shared<io::StlBinaryOstream>(path);
+    out = std::make_shared<io::StlBinaryOStream>(path);
   } else if (type == "ascii_stl") {
-    out = std::make_shared<io::StlOstream>(path);
+    out = std::make_shared<io::StlOStream>(path);
   } else if (type == "off") {
     out = std::make_shared<io::OffOStream>(path);
   } else {

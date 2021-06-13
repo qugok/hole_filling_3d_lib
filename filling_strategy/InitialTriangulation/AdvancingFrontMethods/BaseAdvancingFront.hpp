@@ -15,7 +15,7 @@ class BaseAdvancingFront : public TriangulationStrategy {
   class BaseFront;
 
  public:
-  explicit BaseAdvancingFront(size_t limit = -1, double coef = sqrt(3));
+  explicit BaseAdvancingFront(size_t limit = -1, double coef = sqrt(4));
   [[nodiscard]] std::vector<std::shared_ptr<Vertex>> ProcessHole(const Hole &h, const MeshController &m) const override;
   ~BaseAdvancingFront() override = default;
   std::string get_all_params()  const override;
@@ -35,7 +35,7 @@ class BaseAdvancingFront::BaseFront {
   friend BaseAdvancingFront;
  protected:
   // число вершин при которых продвижение с помощью данного метода может остановиться
-  static const int vertexes_count_end = 100;
+  static const int vertexes_count_end = 50;
   static const bool min_edge_len = true;
   /*
    * идейно элемент это вершина и ребро границы в неё приходящее

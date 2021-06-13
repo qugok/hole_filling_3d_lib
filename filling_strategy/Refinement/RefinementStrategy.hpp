@@ -7,7 +7,7 @@
 
 namespace refinement {
 /*
- * базовый класс для исправления сетки после алгоритмов триангуляции
+ * базовый класс для уточнения сетки после алгоритмов триангуляции
  */
 class RefinementStrategy : public ImproveStrategy {
  public:

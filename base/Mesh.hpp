@@ -7,10 +7,10 @@
 #include "base.hpp"
 
 namespace io{
-class StlOstream;
-class StlIstream;
-class StlBinaryIstream;
-class StlBinaryOstream;
+class StlOStream;
+class StlIStream;
+class StlBinaryIStream;
+class StlBinaryOStream;
 }
 
 
@@ -27,6 +27,7 @@ class Mesh {
   void fillHolesWithStrategy(const FillingStrategy& s, bool clean_hole_boundary = true);
 
   Mesh();
+
   void set_name(const std::string& s);
 
   friend std::ostream& operator<<(std::ostream& out, const Mesh& m);
@@ -34,10 +35,10 @@ class Mesh {
 
   void normalize();
 
-  friend class io::StlOstream;
-  friend class io::StlIstream;
-  friend class io::StlBinaryIstream;
-  friend class io::StlBinaryOstream;
+  friend class io::StlOStream;
+  friend class io::StlIStream;
+  friend class io::StlBinaryIStream;
+  friend class io::StlBinaryOStream;
 
  private:
   void get_structure(std::vector<std::shared_ptr<Vertex>>& vertices, std::vector<std::tuple<size_t, size_t , size_t>>& triangles);
@@ -63,7 +64,7 @@ class Mesh {
    * @param e множество доступных граничных полуребер
    * @return сообщает о корректности завершения операции
    * false, если    дырка не закончилась
-   *                она изначально была пустая
+   *         или    она изначально была пустая
    *
    */
   static bool find_whole_hole_boundary(Hole& hole, std::unordered_set<std::shared_ptr<HalfEdge>>& e);

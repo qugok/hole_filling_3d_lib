@@ -11,31 +11,31 @@ io::BaseIStream::operator bool() {
   return !error;
 }
 
-io::StlIstream::StlIstream() : in(&std::cin){}
+io::StlIStream::StlIStream() : in(&std::cin){}
 
-io::StlIstream::StlIstream(const std::string &path) {
+io::StlIStream::StlIStream(const std::string &path) {
   in =  new std::ifstream(path);
 }
 
 
-io::StlIstream &io::StlIstream::operator>>(double &d) {
+io::StlIStream &io::StlIStream::operator>>(double &d) {
   *in >> d;
   return *this;
 }
-io::StlIstream &io::StlIstream::operator>>(std::string &s) {
+io::StlIStream &io::StlIStream::operator>>(std::string &s) {
   *in >> s;
   return *this;
 }
-io::StlIstream &io::StlIstream::operator>>(Point &p) {
+io::StlIStream &io::StlIStream::operator>>(Point &p) {
   *this >> p.x >> p.y >> p.z;
   return *this;
 }
-io::StlIstream &io::StlIstream::operator>>(Vertex &v) {
+io::StlIStream &io::StlIStream::operator>>(Vertex &v) {
   std::string temp;
   *this >> temp >> v._coordinates;
   return *this;
 }
-io::StlIstream &io::StlIstream::operator>>(Triangle &t) {
+io::StlIStream &io::StlIStream::operator>>(Triangle &t) {
   error = false;
   std::string temp;
   if (!(*this >> temp)  || temp != "facet"){
@@ -51,7 +51,7 @@ io::StlIstream &io::StlIstream::operator>>(Triangle &t) {
   *this >> temp >> temp;
   return *this;
 }
-io::StlIstream &io::StlIstream::operator>>(Mesh &m) {
+io::StlIStream &io::StlIStream::operator>>(Mesh &m) {
   std::string temp;
   *this >> temp >> m.name;
   Triangle t;
@@ -60,7 +60,7 @@ io::StlIstream &io::StlIstream::operator>>(Mesh &m) {
   }
   return *this;
 }
-io::StlIstream::~StlIstream() {
+io::StlIStream::~StlIStream() {
   if (in != &std::cin){
     delete in;
   }

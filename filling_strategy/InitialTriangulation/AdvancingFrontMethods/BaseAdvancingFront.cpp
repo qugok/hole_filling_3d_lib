@@ -250,7 +250,7 @@ bool initial_triangulation::advancing_front::base::BaseAdvancingFront::BaseFront
     areaa += area(prev, centre, cur);
     prev = cur;
   }
-  if (areaa < avg_area * 50) {
+  if (areaa < avg_area * 35) {
     return true;
   }
   return false;

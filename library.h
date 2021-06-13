@@ -9,8 +9,8 @@
 #include <BaseOStream.hpp>
 #include <OffIStream.hpp>
 #include <OffOStream.hpp>
-#include <StlBinaryIstream.hpp>
-#include <StlBinaryOstream.hpp>
+#include <StlBinaryIStream.hpp>
+#include <StlBinaryOStream.hpp>
 
 
 #include <Hole.hpp>
